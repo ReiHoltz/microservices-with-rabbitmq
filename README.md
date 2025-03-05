@@ -6,12 +6,12 @@
 This project demonstrates the asynchronous communication flow between two microservices using RabbitMQ as a message broker. The scenario involves registering a new user and sending a confirmation email.
 
 ## Project Flow
-1. A client sends a POST request to register a new user in the system.
+1. Client will send a POST request to the "/users" endpoint of the "User Microservice" to register a user.
 2. Once the "User Microservice" receives the new user:
-   - 2.1 It saves the user in the database (the "User Microservice" is responsible for managing users in the system).
-   - 2.2 Then, it produces a message to the Broker to handle asynchronous communication.
-3. The Broker (RabbitMQ) receives the message.
-4. The "Email Microservice," which is connected to this Broker:
+   - 2.1 It saves the user in the database (as it is responsible for managing users in the system).
+   - 2.2 Then, it publishes a message to the Broker (RabbitMQ) to handle asynchronous communication.
+3. The Broker's Exchange checks and processes the message, then routes it to the respective queues.
+4. The "Email Microservice," which is connected to the Broker:
    - 4.1 Consumes the message.
    - 4.2 Sends a "Registration Successful" confirmation email.
    - 4.3 Finally, it saves the email record in the database.
