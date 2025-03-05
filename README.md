@@ -1,6 +1,6 @@
 # Asynchronous Communication Between Microservices Using RabbitMQ
 
-![Asynchronous Communication Flow](./Project-Flow.jpg)
+![Asynchronous Communication Flow](./Project-Flow.png)
 
 ## Project Description
 This project demonstrates the asynchronous communication flow between two microservices using RabbitMQ as a message broker. The scenario involves registering a new user and sending a confirmation email.
